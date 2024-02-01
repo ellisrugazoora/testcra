@@ -41,9 +41,9 @@ function App() {
           
         </header>
       </div> */}
-      <div className='container'>
+      {/* <div className='container'>
         <UserStatus />
-      </div>
+      </div> */}
       
     </ThinBackend>
   );
