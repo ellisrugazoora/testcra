@@ -8,18 +8,18 @@ function App() {
     // This url is different for each backend, this one points to 'testcra'
     host: 'https://testcra.thinbackend.app'
   });
-  // function UserStatus() {
-  //   // Use the `useCurrentUser()` react hook to access the current logged in user
-  //   // Returns `null` while the user is being fetched
-  //   const user = useCurrentUser();
+  function UserStatus() {
+    // Use the `useCurrentUser()` react hook to access the current logged in user
+    // Returns `null` while the user is being fetched
+    const user = useCurrentUser();
 
-  //   return <div>
-  //       {user?.email}
+    return <div>
+        {user?.email}
 
-  //       <button onClick={logout}>Logout</button>
-  //   </div>
+        <button onClick={logout}>Logout</button>
+    </div>
   
-  // }
+  }
   
   return (
     <ThinBackend requireLogin>
