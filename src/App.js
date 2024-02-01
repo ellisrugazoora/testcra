@@ -1,13 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-import { ThinBackend } from 'thin-backend-react';
-import { ensureIsUser, initThinBackend } from 'thin-backend';
+import { ThinBackend, useCurrentUser } from 'thin-backend-react';
+import { ensureIsUser, initThinBackend, logout } from 'thin-backend';
 
 function App() {
   initThinBackend({
     // This url is different for each backend, this one points to 'testcra'
     host: 'https://testcra.thinbackend.app'
   });
+  function UserStatus() {
+    // Use the `useCurrentUser()` react hook to access the current logged in user
+    // Returns `null` while the user is being fetched
+    const user = useCurrentUser();
+
+    return <div>
+        {user?.email}
+
+        <button onClick={logout}>Logout</button>
+    </div>
+  
+  }
+  
   return (
     <ThinBackend requireLogin>
       <div className="App">
@@ -24,6 +37,7 @@ function App() {
           >
             Learn React
           </a>
+          <UserStatus />
         </header>
       </div>
     </ThinBackend>
